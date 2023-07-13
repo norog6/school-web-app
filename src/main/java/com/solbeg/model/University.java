@@ -19,12 +19,11 @@ import java.util.List;
 public class University {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String name;
 
     @Builder.Default
-    @OneToMany(mappedBy = "university",cascade = {CascadeType.MERGE,
-            CascadeType.PERSIST,CascadeType.REFRESH,CascadeType.DETACH,CascadeType.ALL})
+    @OneToMany(mappedBy = "university")
     private List<Student> students=new ArrayList<>();
     public void addStudent(Student student){
         students.add(student);

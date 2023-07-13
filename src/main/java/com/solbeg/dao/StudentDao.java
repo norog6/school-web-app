@@ -1,23 +1,26 @@
 package com.solbeg.dao;
-import com.solbeg.model.Student;
 
+import com.solbeg.model.Student;
+import com.solbeg.util.HibernateUtil;
+import lombok.Cleanup;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 
 
 public class StudentDao {
-    public static void saveStudent(Student student) {
-        Configuration configuration = new Configuration();
+    public  void saveStudent(Student student) {
+            @Cleanup Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.persist(student);
+            session.getTransaction().commit();
 
-        configuration.configure();
-
-        SessionFactory sessionFactory = configuration.buildSessionFactory();
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-            session.save(student);
+    }
+        public void deleteStudent(Long id){
+            @Cleanup Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.remove(session.get(Student.class,id));
             session.getTransaction().commit();
         }
+
     }
 

@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     @Column(name = "name")
     private String name;
     @Column(name = "last_name")
@@ -24,8 +24,7 @@ public class Student {
     @Column(name = "phone")
     private String phone;
 
-    @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
-    @JoinColumn(name = "university_id")
+    @ManyToOne(fetch = FetchType.LAZY)
     private University university;
 
 

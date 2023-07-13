@@ -1,13 +1,22 @@
 package com.solbeg.util;
 
+import lombok.Cleanup;
 import lombok.experimental.UtilityClass;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 @UtilityClass
 public class HibernateUtil {
-    public static SessionFactory buildSessionFactory() {
+    private static SessionFactory sessionFactory;
+
+    static {
         Configuration configuration = new Configuration();
         configuration.configure();
-        return configuration.buildSessionFactory();
+        sessionFactory = configuration.buildSessionFactory();
     }
-}
+
+    public static SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+    }
+
