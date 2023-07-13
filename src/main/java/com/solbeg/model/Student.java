@@ -26,7 +26,4 @@ public class Student {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private University university;
-
-
-
 }

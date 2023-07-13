@@ -7,6 +7,5 @@ public class UniversityService {
     public University getUniversity(Long id){
         UniversityDao universityDao=new UniversityDao();
         return universityDao.getUniversity(id);
-
     }
 }

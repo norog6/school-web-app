@@ -2,7 +2,6 @@ package com.solbeg.controller;
 
 
 import com.solbeg.model.Student;
-import com.solbeg.model.University;
 import com.solbeg.service.StudentService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -21,27 +20,14 @@ public class MainServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        University university=University.builder()
-                .name("BSUIR")
-                .id(1L)
-                .build();
                 var name = req.getParameter("name");
                 var lastName = req.getParameter("lastName");
                 var email = req.getParameter("email");
                 var phone = req.getParameter("phone");
-                var student = Student.builder()
-                        .name(name)
-                        .lastName(lastName)
-                        .email(email)
-                        .phone(phone)
-                        .build();
-                university.addStudent(student);
                 StudentService service=new StudentService();
-                service.saveStudent(student);
+                service.saveStudent(name,lastName,email,phone,1L);
                 resp.sendRedirect("/users");
-
             }
-
     }
 
 

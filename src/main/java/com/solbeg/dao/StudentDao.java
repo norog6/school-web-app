@@ -13,7 +13,6 @@ public class StudentDao {
             session.beginTransaction();
             session.persist(student);
             session.getTransaction().commit();
-
     }
         public void deleteStudent(Long id){
             @Cleanup Session session = HibernateUtil.getSessionFactory().openSession();
@@ -21,6 +20,5 @@ public class StudentDao {
             session.remove(session.get(Student.class,id));
             session.getTransaction().commit();
         }
-
     }
 
