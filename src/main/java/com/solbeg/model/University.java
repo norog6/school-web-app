@@ -9,8 +9,6 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 @ToString(exclude = "students")
 @EqualsAndHashCode(exclude = "students")
 @Builder
