@@ -1,7 +1,6 @@
 package com.solbeg.controller;
 
 
-import com.solbeg.model.Student;
 import com.solbeg.service.StudentService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
