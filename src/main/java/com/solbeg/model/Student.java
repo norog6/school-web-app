@@ -19,7 +19,7 @@ public class Student {
     private String name;
     @Column(name = "last_name")
     private String lastName;
-    @Column(name = "email",unique = true)
+    @Column(name = "email", unique = true)
     private String email;
     @Column(name = "phone")
     private String phone;

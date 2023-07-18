@@ -19,14 +19,14 @@ public class MainServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-                var name = req.getParameter("name");
-                var lastName = req.getParameter("lastName");
-                var email = req.getParameter("email");
-                var phone = req.getParameter("phone");
-                StudentService service=new StudentService();
-                service.saveStudent(name,lastName,email,phone,1L);
-                resp.sendRedirect("/users");
-            }
+        var name = req.getParameter("name");
+        var lastName = req.getParameter("lastName");
+        var email = req.getParameter("email");
+        var phone = req.getParameter("phone");
+        StudentService service = new StudentService();
+        service.saveStudent(name, lastName, email, phone, 1L);
+        resp.sendRedirect("/users");
     }
+}
 
 

@@ -21,8 +21,9 @@ public class University {
 
     @Builder.Default
     @OneToMany(mappedBy = "university")
-    private List<Student> students=new ArrayList<>();
-    public void addStudent(Student student){
+    private List<Student> students = new ArrayList<>();
+
+    public void addStudent(Student student) {
         students.add(student);
         student.setUniversity(this);
 
